@@ -47,7 +47,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for ="item in products">
+                            <tr v-for ="item in products" :key="item">
                                 <td width="150">{{item.title}}</td>
                                 <td width="120">
                                     {{ item.origin_price }}
@@ -56,8 +56,8 @@
                                     {{ item.price }}
                                 </td>
                                 <td width="150">
-                                    <span class="text-success">啟用</span>
-                                    <span>未啟用</span>
+                                    <span class="text-success" v-if="item.is_enabled">啟用</span>
+                                    <span v-else>未啟用</span>
                                 </td>
                                 <td width="120">
                                     <button type="button" class="btn btn-primary" @click="info = item">查看細節</button>
@@ -86,11 +86,11 @@
                                 </div>
                             </div>
                         </div>
-                        <template v-for="img in info.imagesUrl">
-                            <img v-bind:src="img" alt="多圖" class="images m-2">
+                        <template v-for="(img, id) in info.imagesUrl" :key="id">
+                            <img  v-if="img" v-bind:src="img" alt="多圖" class="images m-2">
                         </template>
                     </template>
-                    <p class="text-secondary">請選擇一個商品查看</p>
+                    <p class="text-secondary" v-else>請選擇一個商品查看</p>
                 </div>
             </div>
         </div>
