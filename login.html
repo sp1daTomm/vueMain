@@ -21,7 +21,7 @@
                     <form class="form-signin" @submit.prevent="login">
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" v-model="user.username" id="floatingInput"
-                                placeholder="name@example.com" required autofocus>
+                                placeholder="name@example.com" autocomplete="email" required autofocus>
                             <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating">

@@ -18,8 +18,8 @@ const app = createApp({
                 .then(res => {
                     console.log(res);
                     const { token, expired } = res.data;
-                    document.cookie =
-                        `hexschoolToken=${token}; expires=${new Date(expired)}`;
+                    console.log(token, expired);
+                    document.cookie = `penToken=${token}; expires=${new Date(expired)}`;
                     window.location = 'product.html';
                 })
                 .catch (err => {
@@ -28,7 +28,8 @@ const app = createApp({
         }
     },
     mounted() {
-        console.log(this.text);
+        // console.log(this.text);
     },
 });
+
 app.mount('#app')
